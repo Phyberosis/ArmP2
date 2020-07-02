@@ -1,0 +1,9 @@
+C:\workspace\CSharp\armp2c\Communications\obj\Debug\Communications.csproj.CoreCompileInputs.cache
+C:\workspace\CSharp\armp2c\Communications\obj\Debug\Communications.csprojAssemblyReference.cache
+C:\workspace\CSharp\armp2c\Communications\bin\Debug\Communications.dll
+C:\workspace\CSharp\armp2c\Communications\bin\Debug\Communications.pdb
+C:\workspace\CSharp\armp2c\Communications\bin\Debug\Data.dll
+C:\workspace\CSharp\armp2c\Communications\bin\Debug\Data.pdb
+C:\workspace\CSharp\armp2c\Communications\obj\Debug\Communications.csproj.CopyComplete
+C:\workspace\CSharp\armp2c\Communications\obj\Debug\Communications.dll
+C:\workspace\CSharp\armp2c\Communications\obj\Debug\Communications.pdb

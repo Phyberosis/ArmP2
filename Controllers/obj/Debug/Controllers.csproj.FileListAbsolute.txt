@@ -1,0 +1,11 @@
+C:\workspace\CSharp\armp2c\Controllers\bin\Debug\Controllers.dll
+C:\workspace\CSharp\armp2c\Controllers\bin\Debug\Controllers.pdb
+C:\workspace\CSharp\armp2c\Controllers\obj\Debug\Controllers.csprojAssemblyReference.cache
+C:\workspace\CSharp\armp2c\Controllers\obj\Debug\Controllers.csproj.CoreCompileInputs.cache
+C:\workspace\CSharp\armp2c\Controllers\obj\Debug\Controllers.dll
+C:\workspace\CSharp\armp2c\Controllers\obj\Debug\Controllers.pdb
+C:\workspace\CSharp\armp2c\Controllers\bin\Debug\Communications.dll
+C:\workspace\CSharp\armp2c\Controllers\bin\Debug\Data.dll
+C:\workspace\CSharp\armp2c\Controllers\bin\Debug\Communications.pdb
+C:\workspace\CSharp\armp2c\Controllers\bin\Debug\Data.pdb
+C:\workspace\CSharp\armp2c\Controllers\obj\Debug\Controllers.csproj.CopyComplete

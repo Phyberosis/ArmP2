@@ -1,0 +1,15 @@
+C:\workspace\CSharp\armp2c\device\bin\Debug\device.exe.config
+C:\workspace\CSharp\armp2c\device\bin\Debug\device.exe
+C:\workspace\CSharp\armp2c\device\bin\Debug\device.pdb
+C:\workspace\CSharp\armp2c\device\obj\Debug\device.csprojAssemblyReference.cache
+C:\workspace\CSharp\armp2c\device\obj\Debug\device.csproj.CoreCompileInputs.cache
+C:\workspace\CSharp\armp2c\device\obj\Debug\device.exe
+C:\workspace\CSharp\armp2c\device\obj\Debug\device.pdb
+C:\workspace\CSharp\armp2c\device\bin\Debug\RaspberryPiDotNet.dll
+C:\workspace\CSharp\armp2c\device\bin\Debug\RaspberryPiDotNet.pdb
+C:\workspace\CSharp\armp2c\device\bin\Debug\RaspberryPiDotNet.xml
+C:\workspace\CSharp\armp2c\device\obj\Debug\device.csproj.CopyComplete
+C:\workspace\CSharp\armp2c\device\bin\Debug\Communications.dll
+C:\workspace\CSharp\armp2c\device\bin\Debug\Data.dll
+C:\workspace\CSharp\armp2c\device\bin\Debug\Communications.pdb
+C:\workspace\CSharp\armp2c\device\bin\Debug\Data.pdb

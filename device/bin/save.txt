@@ -1,0 +1,8 @@
+﻿Arm P2b - saved state
+6 axis total
+Axis 1: 0 of 16000 
+Axis 2: 3667 of 14667 
+Axis 3: 6000 of 24000 
+Axis 4: 0 of 17361 
+Axis 5: 2000 of 8000 
+Axis 6: 1 of 7680 

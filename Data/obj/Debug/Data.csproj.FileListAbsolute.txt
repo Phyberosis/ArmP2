@@ -1,0 +1,6 @@
+C:\workspace\CSharp\armp2c\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\workspace\CSharp\armp2c\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\workspace\CSharp\armp2c\Data\bin\Debug\Data.dll
+C:\workspace\CSharp\armp2c\Data\bin\Debug\Data.pdb
+C:\workspace\CSharp\armp2c\Data\obj\Debug\Data.dll
+C:\workspace\CSharp\armp2c\Data\obj\Debug\Data.pdb
