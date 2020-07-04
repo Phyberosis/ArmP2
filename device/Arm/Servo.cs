@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using Unosquare.RaspberryIO;
 using Unosquare.RaspberryIO.Abstractions;
 
-namespace device.Arm
+namespace Devices.Arm
 {
-    internal abstract class Servo
+    public abstract class Servo
     {
         protected float circ;
         protected float curr = 0;
@@ -83,7 +83,7 @@ namespace device.Arm
             Angle d = final - me;
             int steps = (int)Math.Round(circ * (float)d / 2f / PI);
             if (!float.IsNaN((float)fMid) && 
-                me.Intercepts(final, fMid)) steps -= steps < 0 ? -(int)circ : (int)circ;
+                me.Intercepts(fMid, final)) steps -= steps < 0 ? -(int)circ : (int)circ;
             //Console.WriteLine("Servo GS, Int? {0}, fmid {1}, {2} to {3}", me.Intercepts(final, fMid), fMid, me, final);
             //Console.WriteLine((int)Math.Round(circ * (float)d / 2 / PI) + "<<");
             return steps;

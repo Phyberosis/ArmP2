@@ -20,7 +20,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Unosquare.RaspberryIO;
 
-namespace device.Arm
+namespace Devices.Arm
 {
     internal class ServoDriver
     {

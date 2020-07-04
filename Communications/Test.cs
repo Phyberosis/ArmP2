@@ -13,7 +13,7 @@ namespace Communications
     public class Test
     {
 
-        public void run()
+        public bool Run()
         {
             // packet keys
             PacketKey k = new PacketKey();
@@ -33,6 +33,8 @@ namespace Communications
             Packet.Unpack(sp, out p2);
 
             Console.WriteLine(p2);
+
+            return true;
         }
     }
 }

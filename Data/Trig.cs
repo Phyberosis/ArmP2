@@ -13,8 +13,8 @@ namespace Data
         public static Vector3 Project(Vector3 raw, Vector3 target)
         {
             Vector3 dir = Vector3.Normalize(target);
-            float l = Vector3.Dot(raw, dir);
-            Vector3 result = Vector3.Multiply(dir, l);
+            double l = Vector3.Dot(raw, dir);
+            Vector3 result = Vector3.Multiply(dir, (float)l);
 
             return result;
         }
@@ -31,20 +31,20 @@ namespace Data
         // get angle between a and b
         public static Angle AngleBetween(Vector3 a, Vector3 b)
         {
-            float top = Vector3.Dot(a, b);
-            float bot = a.Length() * b.Length();
-            float raw = (float)Math.Acos(top / bot);
+            double top = Vector3.Dot(a, b);
+            double bot = a.Length() * b.Length();
+            double raw = Math.Acos(top / bot);
 
-            return raw;
+            return (Angle)raw;
         }
 
         public static Angle AngleBetween(Quaternion a, Quaternion b)
         {
-            float top = Quaternion.Dot(a, b);
-            float bot = a.Length() * b.Length();
-            float raw = (float)Math.Acos(top / bot);
+            double top = Quaternion.Dot(a, b);
+            double bot = a.Length() * b.Length();
+            double raw = Math.Acos(top / bot);
 
-            return raw;
+            return (Angle)raw;
         }
     }
 }

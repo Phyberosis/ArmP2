@@ -1,6 +1,6 @@
 ﻿using Data;
 using Data.Arm;
-using device.Arm;
+using Devices.Arm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

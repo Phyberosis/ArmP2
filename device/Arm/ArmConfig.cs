@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Unosquare.RaspberryIO;
 using Unosquare.WiringPi;
 
-namespace device.Arm
+namespace Devices.Arm
 {
-    internal class ArmConfig
+    public class ArmConfig
     {
         public ArmConfig()
         {

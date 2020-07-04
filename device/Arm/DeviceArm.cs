@@ -8,9 +8,9 @@ using Communications;
 using Data;
 using Data.Arm;
 using Data.JSON;
-using device.Arm;
+using Devices.Arm;
 
-namespace Devices
+namespace Devices.Arm
 {
     internal class DeviceArm : Device
     {

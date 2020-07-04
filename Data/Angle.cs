@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace Data
             rectify();
         }
 
-        public bool Intercepts(Angle dest, Angle i)
+        public bool Intercepts(Angle i, Angle dest)
         {
             if (dest == i || dest == this || i == this) return false;
 
@@ -89,6 +90,22 @@ namespace Data
                 val = null;
                 return false;
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType().Equals(typeof(float)))
+                return val == (float)obj;
+
+            if (!obj.GetType().Equals(GetType()))
+                return false;
+
+            return val == ((Angle)obj).val;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         public static explicit operator float(Angle j) => j.val;

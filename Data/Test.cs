@@ -11,7 +11,8 @@ namespace Data
 {
     public class Test
     {
-        public void run()
+
+        public bool Run()
         {
             // Cursor and Keyframes
             ArmCursor ac = new ArmCursor(Vector3.UnitX, Quaternion.Identity);
@@ -43,6 +44,8 @@ namespace Data
             cd2b.fillFromJSON(new JSONDecoder(ja.ToString()));
             JSONableArray<Angle> aa2 = new JSONableArray<Angle>((str) => { return new Angle(float.Parse(str)); });
             Console.WriteLine(cd2b.TryParse(ref aa2));
+
+            return true;
         }
     }
 }

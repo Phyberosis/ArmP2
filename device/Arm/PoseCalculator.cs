@@ -14,9 +14,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Unosquare.RaspberryIO;
 
-namespace device.Arm
+namespace Devices.Arm
 {
-    internal class PoseCalculator
+    public class PoseCalculator
     {
         private float PI = (float)Math.PI;
 
@@ -73,7 +73,7 @@ namespace device.Arm
             Angle upperArmElevation = L2 + targetElevation;
 
             // forearm elevation
-            Angle forearmElevation = PI - elbow - upperArmElevation;
+            Angle forearmElevation = -PI + elbow + upperArmElevation;
 
             //Console.WriteLine("ga");
             return getWristAngles(handOffset, dir,
@@ -84,40 +84,52 @@ namespace device.Arm
             Angle shoulderRot, Angle upperArmElevation, Angle elbow, Angle forearmElevation)
         {
             // using my yaw(Z) / pitch(X)
-            Quaternion fromForearm = Quaternion.CreateFromAxisAngle(Vector3.UnitZ, (float)shoulderRot);
-            Vector3 shoulderJoint = Vector3.Transform(Vector3.UnitY, fromForearm);
-            fromForearm = Quaternion.CreateFromAxisAngle(shoulderJoint, (float)forearmElevation) * fromForearm;
-            //Console.WriteLine("forearm: {0}", Vector3.Transform(Vector3.UnitX, fromForearm));
-            fromForearm = Quaternion.Inverse(fromForearm);
+            Quaternion toForearm = Quaternion.CreateFromAxisAngle(Vector3.UnitZ, (float)shoulderRot);
+            Vector3 shoulderJoint = Vector3.Transform(-Vector3.UnitY, toForearm);
+            toForearm = Quaternion.CreateFromAxisAngle(shoulderJoint, (float)forearmElevation) * toForearm;
 
-            // transform ref frame suzh that forearm is X axis
-            Quaternion normDirTransform = fromForearm * dir;
-            Vector3 hand = Vector3.Transform(Vector3.UnitX, normDirTransform);
-            //Console.WriteLine("handdir "+hand);
+            // get hand
+            Vector3 pointing = Vector3.Transform(Vector3.UnitX, dir);
+            Vector3 hand = Vector3.Transform(pointing, Quaternion.Inverse(toForearm));
 
-            Vector2 handR = new Vector2(-hand.Y, hand.Z);
-            Angle wristRot = Math.Atan(handR.X / handR.Y);  //abusing tan
+            Vector2 handR = new Vector2(hand.Y, hand.Z);        // squash to X
+            Angle wristRot = -Math.Atan(handR.X / handR.Y);     // abusing tan
 
-            Vector2 handF = new Vector2(hand.X, hand.Z);
-            Angle wristFlex = Math.Atan(handF.Y / handF.X);
+            // subtract wrist rot
+            hand = Vector3.Transform(hand,
+                Quaternion.CreateFromAxisAngle(Vector3.UnitX, -(float)wristRot));
+
+            Vector2 handF = new Vector2(hand.X, hand.Z);        // squash to Y
+            Angle wristFlex = Math.Atan(handF.Y / handF.X);     // actual tan
             if (handF.X < 0) wristFlex += PI;
 
-            //Vector3 handUp = Vector3.Transform(Vector3.UnitZ, dir * fromForearm);
+            // resultant hand
             Quaternion handTransform = Quaternion.CreateFromAxisAngle(Vector3.UnitX, (float)wristRot);
             Vector3 wristFlexAxis = Vector3.Transform(-Vector3.UnitY, handTransform);
             handTransform = Quaternion.CreateFromAxisAngle(wristFlexAxis, (float)wristFlex) * handTransform;
-            //Console.WriteLine("X>>ht" + Vector3.Transform(Vector3.UnitX, handTransform));
 
-            //handTransform = handTransform * fromForearm;
-            //Console.WriteLine("X>>fht" + Vector3.Transform(Vector3.UnitX, handTransform));
-
-            Quaternion diff = Quaternion.Inverse(handTransform) * normDirTransform;
+            // differece resultant and actual
+            Quaternion diff = Quaternion.Inverse(toForearm * handTransform) * dir;
             Angle handRot = 2f * Math.Acos(diff.W);
-            if(handRot != 0 && handRot != PI)
+            if (handRot != 0 && handRot != PI)
             {
-                if (diff.Z < 0) handRot = -handRot;
-                //since rotAxis.Z = diff.Z / Sqrt(1 - (diff.W * diff.W));
+                if (diff.X < 0) handRot = -handRot;
+                //since rotAxis.X = diff.X / Sqrt(1 - (diff.W * diff.W));
             }
+
+            //debug
+            //Console.WriteLine("method printout");
+            //Console.WriteLine("forearm: {0}", Vector3.Transform(Vector3.UnitX, toForearm));
+            //Console.WriteLine("fElev " + forearmElevation);
+            //Console.WriteLine("pt" + pointing);
+            //Console.WriteLine(hand);
+            //Console.WriteLine(wristRot.toDegrees());
+            //Console.WriteLine(wristFlex.toDegrees());
+            //Vector3 calcHand = Vector3.Transform(Vector3.UnitX, handTransform);
+            //Console.WriteLine("calcH" + calcHand);
+            //Console.WriteLine(Vector3.Transform(Vector3.UnitX, dir));
+            //Console.WriteLine(Vector3.Transform(Vector3.UnitX, toForearm * handTransform));
+            //Console.WriteLine(handRot.toDegrees());
 
             //Console.WriteLine("ga done");
             return new Angle[]
