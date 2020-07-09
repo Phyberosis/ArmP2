@@ -1,2 +1,10 @@
 C:\workspace\CSharp\armp2c\Procedure\obj\Debug\Procedure.csprojAssemblyReference.cache
 C:\workspace\CSharp\armp2c\Procedure\obj\Debug\Procedure.csproj.CoreCompileInputs.cache
+C:\workspace\CSharp\armp2c\Procedure\bin\Debug\Procedure.exe.config
+C:\workspace\CSharp\armp2c\Procedure\bin\Debug\Procedure.exe
+C:\workspace\CSharp\armp2c\Procedure\bin\Debug\Procedure.pdb
+C:\workspace\CSharp\armp2c\Procedure\bin\Debug\Data.dll
+C:\workspace\CSharp\armp2c\Procedure\bin\Debug\Data.pdb
+C:\workspace\CSharp\armp2c\Procedure\obj\Debug\Procedure.csproj.CopyComplete
+C:\workspace\CSharp\armp2c\Procedure\obj\Debug\Procedure.exe
+C:\workspace\CSharp\armp2c\Procedure\obj\Debug\Procedure.pdb

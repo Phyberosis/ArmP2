@@ -110,7 +110,9 @@ namespace Devices.Arm
 
             // differece resultant and actual
             Quaternion diff = Quaternion.Inverse(toForearm * handTransform) * dir;
-            Angle handRot = 2f * Math.Acos(diff.W);
+            float w = diff.W;
+            w = w > 1 ? 1 : w < -1 ? -1 : w;
+            Angle handRot = 2f * Math.Acos(w);
             if (handRot != 0 && handRot != PI)
             {
                 if (diff.X < 0) handRot = -handRot;

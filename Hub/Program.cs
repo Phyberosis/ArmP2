@@ -1,5 +1,5 @@
 ﻿using Communications;
-using Controllers;
+using Input;
 using Data;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using System.Xml.Serialization;
 using System.Windows;
 using UI;
 using System.Windows.Input;
+using Data.Arm;
 
 namespace Hub
 {
@@ -23,7 +24,6 @@ namespace Hub
         }
 
         private Com com;
-        private Controller controllerDefault;
         private Window mainWindow;
         private Application app;
 
@@ -31,8 +31,8 @@ namespace Hub
 
         private Program()
         {
-            //com = ComFactory.MakeDefault();
-            com = ComFactory.MakeDummy();
+            com = ComFactory.MakeDefault();
+            //com = ComFactory.MakeDummy();
             com.setOnRead(tempOnRead);
 
             Task.Delay(0).ContinueWith((t) =>
@@ -57,8 +57,7 @@ namespace Hub
                 EventBulletin.GetInstance().Notify(EventBulletin.Event.CLOSE, null, null);
             });
 
-            controllerDefault = ControllerFactory.MakeDefault(com);
-            mainWindow = new MainWindow(controllerDefault);
+            mainWindow = new MainWindow(com);
             mainWindow.Show();
 
             EventBulletin.Subscribe(EventBulletin.Event.CLOSE, (o, e) => { tempOnClose(); });

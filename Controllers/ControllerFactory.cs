@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Controllers
+namespace Input
 {
     public class ControllerFactory
     {
@@ -16,6 +16,16 @@ namespace Controllers
             //ControllerKeyboard c = 
             //window.onKeyDown = (o, e) => { c.keyDown((KeyEventArgs)e); };
             //window.onKeyUp = (o, e) => { c.keyDown((KeyEventArgs)e); };
+            return new ControllerKeyboard(com);
+        }
+
+        public static Controller MakeHandController(Com com)
+        {
+            return new ControllerHand(com);
+        }
+
+        public static Controller MakeKeyboardController(Com com)
+        {
             return new ControllerKeyboard(com);
         }
     }

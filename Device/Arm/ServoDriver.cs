@@ -43,8 +43,17 @@ namespace Devices.Arm
             //    servoToStep[i] = 1;
             //}
 
-            Pi.Init<Unosquare.WiringPi.BootstrapWiringPi>();
-            servos = config.CreateSteppers();
+            try
+            {
+
+                Pi.Init<Unosquare.WiringPi.BootstrapWiringPi>();
+                servos = config.CreateSteppers();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Making test servos instead");
+                servos = config.CreateTestServos();
+            }
 
             //servos = config.CreateTestServos();
 
@@ -227,6 +236,9 @@ namespace Devices.Arm
             {
                 reader = new StreamReader(SAVE_FILE);
             }catch(FileNotFoundException)
+            {
+                return;
+            }catch(DirectoryNotFoundException)
             {
                 return;
             }

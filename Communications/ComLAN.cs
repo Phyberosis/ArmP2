@@ -226,7 +226,8 @@ namespace Communications
 
         protected override void dispose()
         {
-            connection.Close();
+            if (connection != null)
+                connection.Close();
         }
     }
 }

@@ -13,9 +13,10 @@ C:\workspace\CSharp\armp2c\ui\obj\Debug\ui.csproj.CoreCompileInputs.cache
 C:\workspace\CSharp\armp2c\ui\obj\Debug\ui.exe
 C:\workspace\CSharp\armp2c\ui\obj\Debug\ui.pdb
 C:\workspace\CSharp\armp2c\ui\bin\Debug\Communications.dll
-C:\workspace\CSharp\armp2c\ui\bin\Debug\Controllers.dll
 C:\workspace\CSharp\armp2c\ui\bin\Debug\Data.dll
 C:\workspace\CSharp\armp2c\ui\bin\Debug\Communications.pdb
 C:\workspace\CSharp\armp2c\ui\bin\Debug\Controllers.pdb
 C:\workspace\CSharp\armp2c\ui\bin\Debug\Data.pdb
 C:\workspace\CSharp\armp2c\ui\obj\Debug\ui.csproj.CopyComplete
+C:\workspace\CSharp\armp2c\ui\bin\Debug\Controllers.exe
+C:\workspace\CSharp\armp2c\ui\bin\Debug\LeapCSharp.NET4.5.dll

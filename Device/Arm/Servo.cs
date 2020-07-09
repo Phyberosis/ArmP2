@@ -172,7 +172,7 @@ namespace Devices.Arm
 
             public override void Reset()
             {
-                throw new NotImplementedException();
+
             }
 
             protected override void makeStep()

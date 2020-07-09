@@ -56,7 +56,7 @@
             <Setter Property="Background" Value="{StaticResource Green0}"/>
         </Style>
     </Window.Resources>
-    
+
     <Grid x:Name="grdBackground">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -101,9 +101,8 @@
                         Style="{StaticResource OrangeButton}" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="37" Canvas.Left="10" Canvas.Top="52" Margin="0"/>
                 <Button x:Name="btnAddKeyframe" Content="Add Keyframe" Style="{StaticResource BlueButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="37" Canvas.Left="10" Canvas.Top="94" Click="btnAddKeyframe_Click" Margin="0"/>
                 <Button x:Name="btnNew" Content="New Animation" Style="{StaticResource BlueButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="37" Canvas.Top="136" Click="btnNew_Click" Margin="0" Canvas.Left="10"/>
-                <Label x:Name="lblArmPos" Content="..." Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Foreground="White" Grid.ColumnSpan="3" Canvas.Left="10" Canvas.Top="201"/>
-                <Label x:Name="lblArmDir" Content="..." Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Foreground="White" Grid.ColumnSpan="3" Canvas.Left="10" Canvas.Top="232"/>
-                <Label x:Name="lblMsg" Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Foreground="White" Canvas.Left="10" Canvas.Top="263"/>
+                <Button x:Name="btnKeyboardControl" Content="Use Keyboard" Style="{StaticResource OrangeButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="37" Canvas.Left="10" Canvas.Top="198" Margin="0" Click="btnKeyboardControl_Click"/>
+                <Button x:Name="btnHandControl" Content="Use Hand" Style="{StaticResource OrangeButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="37" Canvas.Top="240" Margin="0" Canvas.Left="10" Click="btnHandControl_Click"/>
             </Canvas>
         </Grid>
     </Grid>

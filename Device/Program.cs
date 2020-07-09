@@ -6,8 +6,8 @@ namespace Devices
     {
         static void Main(string[] args)
         {
-            Test.Run();
-            //DeviceFactory.MakeArm();
+            //Test.Run();
+            DeviceFactory.MakeArm();
         }
     }
 }

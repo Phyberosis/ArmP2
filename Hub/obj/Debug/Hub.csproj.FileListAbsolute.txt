@@ -4,7 +4,6 @@ C:\workspace\CSharp\armp2c\Hub\bin\Debug\Hub.exe.config
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\Hub.exe
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\Hub.pdb
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\Communications.dll
-C:\workspace\CSharp\armp2c\Hub\bin\Debug\Controllers.dll
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\Data.dll
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\Communications.pdb
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\Controllers.pdb
@@ -22,3 +21,5 @@ C:\workspace\CSharp\armp2c\Hub\bin\Debug\System.Text.Encoding.CodePages.dll
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\Swan.xml
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\Swan.Lite.xml
 C:\workspace\CSharp\armp2c\Hub\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\workspace\CSharp\armp2c\Hub\bin\Debug\Controllers.exe
+C:\workspace\CSharp\armp2c\Hub\bin\Debug\LeapCSharp.NET4.5.dll

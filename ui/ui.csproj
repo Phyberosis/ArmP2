@@ -102,9 +102,9 @@
       <Project>{E40C63C3-1B10-45E5-A595-E05985AFC974}</Project>
       <Name>Communications</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Controllers\Controllers.csproj">
+    <ProjectReference Include="..\Controllers\Input.csproj">
       <Project>{58577c89-4a98-4c89-862a-aa6585f12315}</Project>
-      <Name>Controllers</Name>
+      <Name>Input</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{15097f70-e03a-4745-ab05-86b080e0a935}</Project>

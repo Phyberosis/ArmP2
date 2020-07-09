@@ -7,12 +7,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Controllers
+namespace Input
 {
     public abstract class Controller
     {
@@ -20,7 +21,7 @@ namespace Controllers
 
         private bool hasControl = false;
 
-        protected ArmCursor cursor = new ArmCursor(Vector3.Zero, Quaternion.CreateFromAxisAngle(Vector3.UnitX, 0));
+        protected ArmCursor cursor;
 
         public delegate void UpdateLabels(VerboseInfo msg);
         private UpdateLabels updateLabelsDelegate;
@@ -32,6 +33,12 @@ namespace Controllers
         public Controller(Com comObject)
         {
             sendData = comObject.Send;
+
+            // todo - sync mechanism
+            cursor = new ArmCursor();
+            cursor.Dir = Quaternion.CreateFromAxisAngle(Vector3.UnitY, (float)Math.PI / 2f);
+            cursor.Pos.X = 6f + 23;
+            cursor.Pos.Z = -5.5f + 30.5f;
         }
 
         public void GiveControl()

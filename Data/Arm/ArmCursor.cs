@@ -60,13 +60,12 @@ namespace Data.Arm
                 float[] ax = new float[4];
                 int a = 3, b;
                 string[] c = { " Y:", " Z:", " W:", "}" };
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < ax.Length; i++)
                 {
                     b = str.IndexOf(c[i], a);
                     ax[i] = float.Parse(str.Substring(a, b - a));
                     a = b + 3;
                 }
-
                 return new Quaternion(ax[0], ax[1], ax[2], ax[3]);
             });
         }

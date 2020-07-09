@@ -73,9 +73,9 @@
       <Project>{E40C63C3-1B10-45E5-A595-E05985AFC974}</Project>
       <Name>Communications</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Controllers\Controllers.csproj">
-      <Project>{58577C89-4A98-4C89-862A-AA6585F12315}</Project>
-      <Name>Controllers</Name>
+    <ProjectReference Include="..\Controllers\Input.csproj">
+      <Project>{58577c89-4a98-4c89-862a-aa6585f12315}</Project>
+      <Name>Input</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{15097F70-E03A-4745-AB05-86B080E0A935}</Project>

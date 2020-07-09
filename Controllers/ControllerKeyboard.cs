@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Controllers
+namespace Input
 {
     internal class ControllerKeyboard : LoopController
     {
@@ -79,7 +79,7 @@ namespace Controllers
         private abstract class KeyProcessor
         {
             protected const float CTrans = 1f;
-            protected const float CRot = 0.5f;
+            protected const float CRot = 0.2f;
 
             public abstract bool getNextTarget(
                 ref ArmCursor offset, ref Collection<Key> keysDown, ref Collection<Key> keysToggle, float stepAmount, out ComData msg);
@@ -117,7 +117,7 @@ namespace Controllers
                     dDir.X += 1;
                 if (keysDown.Contains(Key.M))
                     dDir.Z += -1;
-                if (keysDown.Contains(Key.OemPeriod))
+                if (keysDown.Contains(Key.N))
                     dDir.Z += 1;
 
                 if (dPos == Vector3.Zero && dDir == Vector3.Zero)
@@ -133,7 +133,11 @@ namespace Controllers
                 q *= offset.Dir;
 
                 offset.Set(offset.Pos + dPos, q);
-
+                Console.WriteLine(q);
+                //Console.WriteLine(Vector3.Transform(Vector3.UnitX, q));
+                //Console.WriteLine(Vector3.Transform(Vector3.UnitY, q));
+                //Console.WriteLine(Vector3.Transform(Vector3.UnitZ, q));
+                //Console.WriteLine();
                 msg = new ComData(new KeyFrame(offset, Time.Now()));
                 if (VERBOSE) Console.WriteLine("Cursor: \n{0}\n", offset.ToString());
                 return true;
@@ -151,7 +155,11 @@ namespace Controllers
 
             public RawAnglesProcessor()
             {
-                offsets = new float[toCheck.Length + 1];
+                float pi = (float)Math.PI;
+                offsets = new float[]
+                {
+                    0, pi/2, pi/2, 0, -pi/2, 0
+                };
             }
 
             public override bool getNextTarget(

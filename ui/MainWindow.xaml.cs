@@ -1,4 +1,4 @@
-﻿using Controllers;
+﻿using Input;
 using Data;
 using System;
 using System.ComponentModel;
@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Communications;
 
 namespace UI
 {
@@ -34,14 +35,16 @@ namespace UI
     public partial class MainWindow : Window
     {
         private Controller controller;
+        private Com com;
         private EventBulletin eventBulletin;
 
         private Library lib;
         //private Com com;
 
-        public MainWindow(Controller mainController)
+        public MainWindow(Com com)
         {
-            controller = mainController;
+            this.com = com;
+            controller = ControllerFactory.MakeDefault(com);
             eventBulletin = EventBulletin.GetInstance();
 
             InitializeComponent();
@@ -74,16 +77,6 @@ namespace UI
             eventBulletin.Notify(EventBulletin.Event.KEY_UP, sender, e);
         }
 
-        public void setArmDataLabels(VerboseInfo info)
-        {
-            Dispatcher.Invoke(new Action(() =>
-            {
-                lblArmPos.Content = "Position: " + info.pos;
-                lblArmDir.Content = "Gimbal: " + info.dir;
-                lblMsg.Content = info.angles + "\n" + info.msg;
-            }));
-        }
-
         private void FrmMain_Closing(object sender, CancelEventArgs e)
         {
             controller.ReleaseControl();
@@ -103,6 +96,20 @@ namespace UI
         private void btnToggleRun_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnKeyboardControl_Click(object sender, RoutedEventArgs e)
+        {
+            if (controller.inControl()) return;
+
+            controller = ControllerFactory.MakeKeyboardController(com);
+        }
+
+        private void btnHandControl_Click(object sender, RoutedEventArgs e)
+        {
+            if (controller.inControl()) return;
+
+            controller = ControllerFactory.MakeHandController(com);
         }
     }
 }
