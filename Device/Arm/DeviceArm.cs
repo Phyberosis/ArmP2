@@ -57,7 +57,7 @@ namespace Devices.Arm
                         Console.WriteLine("failed keyframe");
                         return;
                     }
-                    driver.SetTarget(f.Cursor);
+                    driver.SetTarget(f.cursor);
                     break;
                 case "JSONableArray":
                     JSONableArray<float> a = new JSONableArray<float>(float.Parse);

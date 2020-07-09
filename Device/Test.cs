@@ -53,7 +53,7 @@ namespace Devices
             cursor.Pos.Z = -5.5f +   30.5f;
             ArmCursor orig = cursor;
 
-            ArmCursor rest = new ArmCursor(new Vector3(17, 0, 6), cursor.Dir);
+            ArmCursor rest = new ArmCursor(new Vector3(16, 0, 8), cursor.Dir);
             Angle[] angles = sd.GetAngles();
 
             sd.Run();
@@ -74,12 +74,14 @@ namespace Devices
 
                 if (s.Contains("cal"))
                 {
+                    cursor = orig;
                     angles = sd.SetTarget(orig);
                     continue;
                 }
 
                 if (s.Contains("rest"))
                 {
+                    cursor = rest;
                     angles = sd.SetTarget(rest);
                     continue;
                 }

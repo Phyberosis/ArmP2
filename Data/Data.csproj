@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Angle.cs" />
     <Compile Include="Arm\Gimbal.cs" />
+    <Compile Include="Arm\KeyFrame.cs" />
     <Compile Include="JSON\JSONableArray.cs" />
     <Compile Include="Arm\ArmCursor.cs" />
     <Compile Include="ComData.cs" />
@@ -53,7 +54,6 @@
     <Compile Include="JSON\JSONablePrimitive.cs" />
     <Compile Include="JSON\JSONBuilder.cs" />
     <Compile Include="JSON\JSONDecoder.cs" />
-    <Compile Include="Arm\KeyFrame.cs" />
     <Compile Include="Promise.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.cs" />

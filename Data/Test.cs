@@ -15,17 +15,18 @@ namespace Data
         public bool Run()
         {
             // Cursor and Keyframes
-            ArmCursor ac = new ArmCursor(Vector3.UnitX, Quaternion.Identity);
-            KeyFrame kf = new KeyFrame(ac, (float)Math.PI);
-            JSONBuilder jkf = new JSONBuilder();
-            ComData cd1 = new ComData(kf);
-            cd1.addToJSON(jkf);
-            Console.WriteLine(jkf.ToString());
+            // too - move to unit tests
+            //ArmCursor ac = new ArmCursor(Vector3.UnitX, Quaternion.Identity);
+            //KeyFrame kf = new KeyFrame(ac, (float)Math.PI);
+            //JSONBuilder jkf = new JSONBuilder();
+            //ComData cd1 = new ComData(kf);
+            //cd1.addToJSON(jkf);
+            //Console.WriteLine(jkf.ToString());
 
-            ComData cd1b = new ComData("");
-            cd1b.fillFromJSON(new JSONDecoder(jkf.ToString()));
-            KeyFrame kf2 = new KeyFrame();
-            Console.WriteLine(cd1b.TryParse(ref kf2));
+            //ComData cd1b = new ComData("");
+            //cd1b.fillFromJSON(new JSONDecoder(jkf.ToString()));
+            //KeyFrame kf2 = new KeyFrame();
+            //Console.WriteLine(cd1b.TryParse(ref kf2));
 
             Angle[] a =
             {

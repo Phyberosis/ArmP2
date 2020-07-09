@@ -1,0 +1,2 @@
+C:\workspace\CSharp\armp2c\Procedure\obj\Debug\Procedure.csprojAssemblyReference.cache
+C:\workspace\CSharp\armp2c\Procedure\obj\Debug\Procedure.csproj.CoreCompileInputs.cache

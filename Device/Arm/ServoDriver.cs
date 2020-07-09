@@ -1,20 +1,7 @@
-﻿using Communications;
-using Data;
+﻿using Data;
 using Data.Arm;
 using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Data;
-using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Numerics;
-using System.Reflection;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Security.Cryptography;
-using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,6 +11,8 @@ namespace Devices.Arm
 {
     internal class ServoDriver
     {
+        private const int AXIS = 6;
+
         //private readonly Pose target;
         private PoseCalculator poseCalculator;
         private ArmConfig config;
@@ -34,14 +23,13 @@ namespace Devices.Arm
         private bool running = false;
         private AutoResetEvent notifyWorkerEvent;
 
+        private ArmCursor Velocity = ArmCursor.ZERO;
+
         private float currentProgress = 1;
-        private int[] servoProgress = new int[6];
-        private int[] servoToStep = new int[6];
+        private int[] servoProgress = new int[AXIS];
+        private int[] servoToStep = new int[AXIS];
 
         private const string SAVE_FILE = @"/home/phyberosis/armp2c/save.txt";
-
-        //private delegate Angle GetSliceDelegate(Angle a);
-        //private GetSliceDelegate getSlice;
 
         public ServoDriver()
         {

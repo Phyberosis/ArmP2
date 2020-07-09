@@ -2,10 +2,13 @@
 using Data;
 using System;
 using System.ComponentModel;
+using System.Data;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
-namespace ui
+namespace UI
 {
     public struct VerboseInfo
     {
@@ -16,30 +19,48 @@ namespace ui
         public string msg;
     }
 
+    internal static class Constants
+    {
+        public class Colors
+        {
+            public static Color Orange = Color.FromRgb(220, 136, 51);
+            public static Color Grey0 = Color.FromRgb(247, 247, 247);
+            public static Color Grey1 = Color.FromRgb(41, 41, 41);
+            public static Color Blue0 = Color.FromRgb(217, 235, 255);
+            public static Color Green = Color.FromRgb(79, 168, 87);
+        }
+    }
+
     public partial class MainWindow : Window
     {
         private Controller controller;
         private EventBulletin eventBulletin;
+
+        private Library lib;
         //private Com com;
 
         public MainWindow(Controller mainController)
         {
             controller = mainController;
             eventBulletin = EventBulletin.GetInstance();
+
             InitializeComponent();
-            //log = Log.getInstance();
-            //log.Show();
+
+            lib = new Library(grdLeft, grdMid, this.Resources["MyContentTray"] as Style);
         }
 
         private void Click_Control(object sender, RoutedEventArgs e)
         {
+            Button b = (Button)sender;
             if (controller.inControl())
             {
                 controller.ReleaseControl();
+                b.Content = "Take Control";
             }
             else
             {
                 controller.GiveControl();
+                b.Content = "Release Control";
             }
         }
 
@@ -67,6 +88,21 @@ namespace ui
         {
             controller.ReleaseControl();
             eventBulletin.Notify(EventBulletin.Event.CLOSE, sender, e);
+        }
+
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            lib.AddNew();
+        }
+
+        private void btnAddKeyframe_Click(object sender, RoutedEventArgs e)
+        {
+            lib.AddKeyFrame(controller.GetCursor());
+        }
+
+        private void btnToggleRun_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

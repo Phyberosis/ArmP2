@@ -1,10 +1,12 @@
 ﻿using Communications;
 using Data;
+using Data.Arm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,6 +19,8 @@ namespace Controllers
         protected const bool VERBOSE = false;
 
         private bool hasControl = false;
+
+        protected ArmCursor cursor = new ArmCursor(Vector3.Zero, Quaternion.CreateFromAxisAngle(Vector3.UnitX, 0));
 
         public delegate void UpdateLabels(VerboseInfo msg);
         private UpdateLabels updateLabelsDelegate;
@@ -37,6 +41,7 @@ namespace Controllers
                 if (hasControl) return;
                 begin();
                 hasControl = true;
+                Console.WriteLine("Control Given");
             }
         }
 
@@ -49,6 +54,7 @@ namespace Controllers
                 if (!hasControl) return;
                 end();
                 hasControl = false;
+                Console.WriteLine("Control Removed " + cursor.ToString());
             }
         }
 
@@ -57,6 +63,11 @@ namespace Controllers
         public bool inControl()
         {
             return hasControl;
+        }
+
+        public ArmCursor GetCursor()
+        {
+            return cursor;
         }
 
         //private long currentTimeMilis()

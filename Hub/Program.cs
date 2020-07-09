@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Windows;
-using ui;
+using UI;
 using System.Windows.Input;
 
 namespace Hub
@@ -31,8 +31,8 @@ namespace Hub
 
         private Program()
         {
-            com = ComFactory.MakeDefault();
-            //com = ComFactory.MakeDummy();
+            //com = ComFactory.MakeDefault();
+            com = ComFactory.MakeDummy();
             com.setOnRead(tempOnRead);
 
             Task.Delay(0).ContinueWith((t) =>
@@ -56,7 +56,6 @@ namespace Hub
                 Console.WriteLine("close");
                 EventBulletin.GetInstance().Notify(EventBulletin.Event.CLOSE, null, null);
             });
-
 
             controllerDefault = ControllerFactory.MakeDefault(com);
             mainWindow = new MainWindow(controllerDefault);
@@ -92,7 +91,7 @@ namespace Hub
                 closing = true;
             }
 
-            Console.ReadLine();
+            //Console.ReadLine();
             Environment.Exit(0);
         }
     }

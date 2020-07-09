@@ -72,7 +72,7 @@ namespace Controllers
 
             lock (this)
             {
-                return keyProcessor.getNextTarget(ref keysDown, ref keysToggle, rate * dt, out msg);
+                return keyProcessor.getNextTarget(ref cursor, ref keysDown, ref keysToggle, rate * dt, out msg);
             }
         }
 
@@ -81,14 +81,15 @@ namespace Controllers
             protected const float CTrans = 1f;
             protected const float CRot = 0.5f;
 
-            public abstract bool getNextTarget(ref Collection<Key> keysDown, ref Collection<Key> keysToggle, float stepAmount, out ComData msg);
+            public abstract bool getNextTarget(
+                ref ArmCursor offset, ref Collection<Key> keysDown, ref Collection<Key> keysToggle, float stepAmount, out ComData msg);
         }
 
         private class PosDirProcessor : KeyProcessor
         {
-            private ArmCursor offset = new ArmCursor(Vector3.Zero, Quaternion.Identity);
 
-            public override bool getNextTarget(ref Collection<Key> keysDown, ref Collection<Key> keysToggle, float stepAmount, out ComData msg)
+            public override bool getNextTarget(
+                ref ArmCursor offset, ref Collection<Key> keysDown, ref Collection<Key> keysToggle, float stepAmount, out ComData msg)
             {
                 Vector3 dPos = Vector3.Zero;
                 Vector3 dDir = Vector3.Zero;   // just for storing dRotation angles
@@ -153,7 +154,8 @@ namespace Controllers
                 offsets = new float[toCheck.Length + 1];
             }
 
-            public override bool getNextTarget(ref Collection<Key> keysDown, ref Collection<Key> keysToggle, float stepAmount, out ComData msg)
+            public override bool getNextTarget(
+                ref ArmCursor offset, ref Collection<Key> keysDown, ref Collection<Key> keysToggle, float stepAmount, out ComData msg)
             {
                 stepAmount *= CRot;
                 if (keysDown.Contains(Key.LeftShift) || keysDown.Contains(Key.RightShift))

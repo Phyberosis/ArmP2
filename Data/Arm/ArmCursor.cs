@@ -16,6 +16,9 @@ namespace Data.Arm
         public Vector3 Pos;
         public Quaternion Dir;
 
+        public static readonly ArmCursor ZERO = new ArmCursor(
+            Vector3.Zero, Quaternion.CreateFromAxisAngle(Vector3.UnitX, 0));
+
         public ArmCursor(Vector3 pos, Quaternion dir)
         {
             Pos = pos;

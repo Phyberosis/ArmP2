@@ -81,9 +81,9 @@
       <Project>{15097F70-E03A-4745-AB05-86B080E0A935}</Project>
       <Name>Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ui\ui.csproj">
+    <ProjectReference Include="..\ui\UI.csproj">
       <Project>{4886025E-4B59-43B8-936F-552B4EFB42D1}</Project>
-      <Name>ui</Name>
+      <Name>UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

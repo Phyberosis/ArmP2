@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ui.Properties
+namespace UI.Properties
 {
 
 

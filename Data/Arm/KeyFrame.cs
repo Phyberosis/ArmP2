@@ -11,7 +11,7 @@ namespace Data.Arm
 {
     public struct KeyFrame : IJSONable
     {
-        public ArmCursor Cursor;
+        public ArmCursor cursor;
         public float Time;
 
         public KeyFrame(Vector3 v, Quaternion q, float t) : this(new ArmCursor(v, q), t)
@@ -21,13 +21,13 @@ namespace Data.Arm
 
         public KeyFrame(ArmCursor c, float time)
         {
-            Cursor = c;
+            cursor = c;
             Time = time;
         }
 
         public void addToJSON(JSONBuilder jb)
         {
-            jb.addObject("ArmCursor", Cursor);
+            jb.addObject("ArmCursor", cursor);
             jb.addPrimitive("Time", Time);
             jb.closeMe();
         }
@@ -36,8 +36,8 @@ namespace Data.Arm
         {
             jd.SkipLine();
 
-            Cursor = new ArmCursor();
-            Cursor.fillFromJSON(jd);
+            cursor = new ArmCursor();
+            cursor.fillFromJSON(jd);
             jd.SkipLine();
             Time = jd.ParseNext((str) =>
             {
@@ -45,6 +45,11 @@ namespace Data.Arm
                 float.TryParse(str, out f);
                 return f;
             });
+        }
+
+        public override string ToString()
+        {
+            return cursor.ToString() + "\n@ " + Time.ToString() + "s";
         }
     }
 }
