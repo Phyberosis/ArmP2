@@ -1,7 +1,14 @@
 # ArmP2
-6 axis arm, using AR2 kit and raspberry pi. Control relayed from laptop UI to pi via TCP
+6 axis arm, using AR2 parts list and raspberry pi. Control relayed from laptop UI to pi via wifi. Motion capture by Leap motion controller.
 
-### Prototype 2C
+### Roughly how coordinates are translated to motor angles
+https://www.desmos.com/calculator/5hsfqjysua
+
+### ver. 1
+https://www.youtube.com/watch?v=XXEVfsU2kis&ab_channel=TonyLiu
+
+### ver. 2
+https://www.youtube.com/watch?v=gYIicNGGv4E&ab_channel=TonyLiu
 
 #### Setup
 1. change IP constants in Communications (IP's are LAN)
