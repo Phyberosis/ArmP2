@@ -2,7 +2,7 @@
 6 axis arm, using AR2 parts list and raspberry pi. Control relayed from laptop UI to pi via wifi. Motion capture by Leap motion controller.
 
 ### Roughly how coordinates are translated to motor angles
-https://www.desmos.com/calculator/5hsfqjysua
+https://www.desmos.com/calculator/hc1jmkwdoc
 
 # Video demos
 ### ver. 1
